@@ -1,0 +1,16 @@
+FROM gw000/keras:1.2.0-py2-th-cpu
+
+# install dependencies from debian packages
+RUN apt-get update -qq \
+ && apt-get install -y \
+    libjpeg \
+    libjpeg-dev \
+    libfreetype6 \
+    libfreetype6-dev \
+    zlib1g-dev
+
+# install dependencies from python packages
+RUN pip --no-cache-dir install \
+    pandas \
+    scikit-learn \
+    PIL
